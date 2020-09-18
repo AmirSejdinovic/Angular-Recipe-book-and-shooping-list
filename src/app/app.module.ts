@@ -24,6 +24,10 @@ import { EditComponent } from './shopping-list/edit/edit.component';
   imports: [
     BrowserModule
   ],
+  exports: [
+    HeaderComponent,
+ 
+],
   providers: [],
   bootstrap: [AppComponent]
 })
