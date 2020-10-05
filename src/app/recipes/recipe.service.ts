@@ -1,6 +1,8 @@
+import { EventEmitter } from '@angular/core';
 import { Recipe } from './recipe.model';
 //Creating the typescript class whicl will be our service
 export class RecipeService {
+  recipeSelected = new EventEmitter<Recipe>();
   private recipes: Recipe[] = [
     //Creating new Recipe based on our blueprint eg Recipe class
     new Recipe(
