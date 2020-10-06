@@ -1,17 +1,16 @@
 <div class="row">
   <div class="col-sm-10">
-    <app-edit
-    (ingredientAdded)="onIngredientAdded($event)"
-    ></app-edit>
-    <hr>
+    <app-edit></app-edit>
+    <hr />
     <ul class="list-group">
       <!--Looping via array of ingredients via ngFor-->
-      <a  
-      class="list-group-item list-group-item-action" style="cursor: pointer"
-      *ngFor="let ingredient of ingredients"
+      <a
+        class="list-group-item list-group-item-action"
+        style="cursor: pointer"
+        *ngFor="let ingredient of ingredients"
       >
-      {{ ingredient.name }} ({{ ingredient.amount}})
-    </a>
+        {{ ingredient.name }} ({{ ingredient.amount }})
+      </a>
     </ul>
   </div>
 </div>
