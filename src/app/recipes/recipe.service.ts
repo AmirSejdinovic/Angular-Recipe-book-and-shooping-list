@@ -1,6 +1,9 @@
-import { EventEmitter } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { Recipe } from './recipe.model';
+import { ShoppingListService } from '../shopping-list/shopping-list.service';
+
+@Injectable()
 //Creating the typescript class whicl will be our service
 export class RecipeService {
   recipeSelected = new EventEmitter<Recipe>();
@@ -19,9 +22,14 @@ export class RecipeService {
       [new Ingredient('Bunst', 1), new Ingredient('Meet', 21)]
     ),
   ];
+
+  constructor(private slService: ShoppingListService) {}
   //Creating the metod
   getRecipes() {
     //Return the array above. This will return the new array. Slice method will return the copy of array above and nobody can directly access to this above array
     return this.recipes.slice();
+  }
+  addIngredientToShopingList(ingredeints: Ingredient[]) {
+    this.slService.addIngredients(ingredeints);
   }
 }
