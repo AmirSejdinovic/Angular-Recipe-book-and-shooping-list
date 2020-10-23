@@ -6,10 +6,7 @@ With $event i fetch data from the emiter and pasing it into the custom method
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <!--Using ngIf to load the app recipe compnent if we click on recipe link in navmenu-->
-      <app-recipes *ngIf="loadedFeature === 'recipe'"></app-recipes>
-      <!--Using ngif to load the app shoping list if we click on link in navmenu-->
-     <app-shopping-list *ngIf="loadedFeature !== 'recipe'"></app-shopping-list>
+      <router-outlet></router-outlet>
     
     </div>
   </div>

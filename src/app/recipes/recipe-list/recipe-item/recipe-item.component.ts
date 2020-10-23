@@ -1,24 +1,20 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {Recipe} from '../../recipe.model';
+import { Component, Input, OnInit } from '@angular/core';
+import { Recipe } from '../../recipe.model';
+import { RecipeService } from '../../recipe.service';
 
 @Component({
   selector: 'app-recipe-item',
   templateUrl: './recipe-item.component.html',
-  styleUrls: ['./recipe-item.component.css']
+  styleUrls: ['./recipe-item.component.css'],
 })
 export class RecipeItemComponent implements OnInit {
   @Input() recipe: Recipe;
-  //Creating the new proprety with emiiter and this emitter will not held any info because of that I set this type to void
-  @Output() recipeSelected = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(private recipeService: RecipeService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  //Emiting via recipe service method
+  onSelected() {
+    this.recipeService.recipeSelected.emit(this.recipe);
   }
-  //Creating the onSelected method which will be handling the click on the a element
-  //This method will emti the event
-  onSelected(){
-    this.recipeSelected.emit();
-  }
-
 }
