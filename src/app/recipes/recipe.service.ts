@@ -29,6 +29,12 @@ export class RecipeService {
     //Return the array above. This will return the new array. Slice method will return the copy of array above and nobody can directly access to this above array
     return this.recipes.slice();
   }
+
+  getRecipe(index:number){
+    return this.recipes[index];
+  }
+
+
   addIngredientToShopingList(ingredeints: Ingredient[]) {
     this.slService.addIngredients(ingredeints);
   }
