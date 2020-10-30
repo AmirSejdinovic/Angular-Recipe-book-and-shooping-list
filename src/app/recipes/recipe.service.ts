@@ -1,12 +1,13 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import {  Injectable } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { Recipe } from './recipe.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 
+
 @Injectable()
 //Creating the typescript class whicl will be our service
 export class RecipeService {
-  recipeSelected = new EventEmitter<Recipe>();
+  
   private recipes: Recipe[] = [
     //Creating new Recipe based on our blueprint eg Recipe class
     new Recipe(
