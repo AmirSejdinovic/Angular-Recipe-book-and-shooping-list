@@ -46,8 +46,20 @@ export class EditComponent implements OnInit, OnDestroy {
     form.reset();
     
   }
+  onClear(){
+    this.slForm.reset();
+    this.editMode = false;
+  }
+
+  onDelete(){
+    this.slService.deleteIngredinet(this.editedItemIndex);
+    this.onClear();
+  }
+ 
 
   ngOnDestroy(){
     this.subscription.unsubscribe();
   }
+  
+
 }
